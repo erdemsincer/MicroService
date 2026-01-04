@@ -18,7 +18,11 @@ builder.Services.AddMassTransit(configurator =>
 {
     configurator.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("mqps://befjdvjy:dBfEg0GaJyIWuF1Yxd8J0z9CcOsErzk6@moose.rmq.cloudamqp.com/befjdvjy");
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
     });
 });
 var app = builder.Build();

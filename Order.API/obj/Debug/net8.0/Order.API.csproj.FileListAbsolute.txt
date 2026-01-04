@@ -142,3 +142,10 @@
 /Users/erdemsincer/Project/MicroService/Order.API/obj/Debug/net8.0/Order.API.pdb
 /Users/erdemsincer/Project/MicroService/Order.API/obj/Debug/net8.0/Order.API.genruntimeconfig.cache
 /Users/erdemsincer/Project/MicroService/Order.API/obj/Debug/net8.0/ref/Order.API.dll
+/Users/erdemsincer/Project/MicroService/Order.API/bin/Debug/net8.0/MassTransit.dll
+/Users/erdemsincer/Project/MicroService/Order.API/bin/Debug/net8.0/MassTransit.Abstractions.dll
+/Users/erdemsincer/Project/MicroService/Order.API/bin/Debug/net8.0/MassTransit.RabbitMqTransport.dll
+/Users/erdemsincer/Project/MicroService/Order.API/bin/Debug/net8.0/RabbitMQ.Client.dll
+/Users/erdemsincer/Project/MicroService/Order.API/bin/Debug/net8.0/Shared.dll
+/Users/erdemsincer/Project/MicroService/Order.API/bin/Debug/net8.0/Shared.pdb
+/Users/erdemsincer/Project/MicroService/Order.API/obj/Debug/net8.0/Order.API.sourcelink.json

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.API", "Order.API\Orde
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{0F7B5579-E5EF-4936-BB01-CA8E0CF575FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.API", "Stock.API\Stock.API.csproj", "{FE66DD8F-8902-4410-832E-2DFABB7D62D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{0F7B5579-E5EF-4936-BB01-CA8E0CF575FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7B5579-E5EF-4936-BB01-CA8E0CF575FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7B5579-E5EF-4936-BB01-CA8E0CF575FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE66DD8F-8902-4410-832E-2DFABB7D62D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE66DD8F-8902-4410-832E-2DFABB7D62D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE66DD8F-8902-4410-832E-2DFABB7D62D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE66DD8F-8902-4410-832E-2DFABB7D62D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
