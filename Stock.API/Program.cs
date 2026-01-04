@@ -1,4 +1,6 @@
 using MassTransit;
+using Microsoft.OpenApi.Writers;
+using MongoDB.Driver;
 using Shared;
 using Stock.API.Consumers;
 using Stock.API.Services;
@@ -26,6 +28,36 @@ builder.Services.AddMassTransit(configurator =>
 });
 
 builder.Services.AddSingleton<MongoDbService>();
+
+using IServiceScope scope = builder.Services.BuildServiceProvider().CreateScope();
+MongoDbService mongoDbService = scope.ServiceProvider.GetService<MongoDbService>();
+var collection = mongoDbService.GetCollection<Stock.API.Models.Entities.Stock>();
+if (!collection.FindSync(s => true).Any())
+{
+    await collection.InsertManyAsync(new[]
+    {
+        new Stock.API.Models.Entities.Stock
+        {
+            Id = Guid.NewGuid(),
+            ProductId = Guid.NewGuid(),
+            Count = 100
+        },
+        new Stock.API.Models.Entities.Stock
+        {
+            Id = Guid.NewGuid(),
+            ProductId = Guid.NewGuid(),
+            Count = 200
+        },
+        new Stock.API.Models.Entities.Stock
+        {
+            Id = Guid.NewGuid(),
+            ProductId = Guid.NewGuid(),
+            Count = 300
+        }
+    });
+}
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
