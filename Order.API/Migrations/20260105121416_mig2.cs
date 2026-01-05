@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Order.API.Migrations
 {
     /// <inheritdoc />
-    public partial class mig1 : Migration
+    public partial class mig2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,7 @@ namespace Order.API.Migrations
                 {
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BuyerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TotalPrice = table.Column<long>(type: "bigint", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OrderStatus = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -31,7 +31,7 @@ namespace Order.API.Migrations
                 columns: table => new
                 {
                     OrderItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Count = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)

@@ -10,7 +10,7 @@ namespace Order.API.ViewModels
 
     public class OrderItemViewModel
     {
-        public Guid ProductId { get; set; }
+        public string ProductId { get; set; }
         public decimal Price { get; set; }
         public int Count { get; set; }
     }

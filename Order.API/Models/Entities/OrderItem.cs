@@ -6,7 +6,7 @@ namespace Order.API.Models.Entities
     {
         public Guid OrderItemId { get; set; }
 
-        public Guid ProductId { get; set; }
+        public string ProductId { get; set; }
 
         public int Count { get; set; }
 

@@ -39,19 +39,19 @@ if (!collection.FindSync(s => true).Any())
         new Stock.API.Models.Entities.Stock
         {
             Id = Guid.NewGuid(),
-            ProductId = Guid.NewGuid(),
+            ProductId = Guid.NewGuid().ToString(),
             Count = 100
         },
         new Stock.API.Models.Entities.Stock
         {
             Id = Guid.NewGuid(),
-            ProductId = Guid.NewGuid(),
+            ProductId = Guid.NewGuid().ToString(),
             Count = 200
         },
         new Stock.API.Models.Entities.Stock
         {
             Id = Guid.NewGuid(),
-            ProductId = Guid.NewGuid(),
+            ProductId = Guid.NewGuid().ToString(),
             Count = 300
         }
     });

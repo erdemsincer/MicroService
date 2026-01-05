@@ -32,10 +32,10 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
         {
             foreach (OrderItemMessage orderItem in context.Message.OrderItems)
             {
-                var stock = await _stockCollection.FindAsync(s => s.ProductId == orderItem.ProductId);
-                var existStock = stock.FirstOrDefault();
-                existStock.Count -= orderItem.Count;
-                await _stockCollection.ReplaceOneAsync(s => s.Id == existStock.Id, existStock);
+                Stock.API.Models.Entities.Stock stock = await (await _stockCollection.FindAsync(s => s.ProductId == orderItem.ProductId)).FirstOrDefaultAsync();
+                stock.Count -= orderItem.Count;
+                await _stockCollection.FindOneAndReplaceAsync(s => s.ProductId == orderItem.ProductId, stock);
+
             }
             StockReservedEvent stockReservedEvent = new()
             {
@@ -46,6 +46,7 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
 
             ISendEndpoint sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri($"queue:{RabbitMqSettings.PaymentServiceHostAddress}"));
             await sendEndpoint.Send(stockReservedEvent);
+            Console.WriteLine("Stock reserved successfully");
         }
         else
         {
@@ -57,6 +58,7 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
             };
 
             await _publishEndpoint.Publish(stockNotReservedEvent);
+            Console.WriteLine("Stock not sufficient");
         }
         await Task.CompletedTask;
     }

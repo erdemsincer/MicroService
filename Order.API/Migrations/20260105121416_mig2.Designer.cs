@@ -12,7 +12,7 @@ using Order.API.Models;
 namespace Order.API.Migrations
 {
     [DbContext(typeof(OrderApiDbContext))]
-    [Migration("20260104134632_mig2")]
+    [Migration("20260105121416_mig2")]
     partial class mig2
     {
         /// <inheritdoc />
@@ -63,8 +63,9 @@ namespace Order.API.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderItemId");
 
