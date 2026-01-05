@@ -48,10 +48,10 @@ namespace Order.API.Controller
             {
                 OrderId = order.OrderId,
                 BuyerId = order.BuyerId,
+                TotalPrice = order.TotalPrice,
                 OrderItems = order.OrderItems.Select(oi => new Shared.Messages.OrderItemMessage
                 {
                     ProductId = oi.ProductId,
-                    Price = oi.Price,
                     Count = oi.Count
                 }).ToList()
             });

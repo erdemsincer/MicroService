@@ -1,0 +1,8 @@
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.csproj.AssemblyReference.cache
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.AssemblyInfoInputs.cache
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.AssemblyInfo.cs
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.csproj.CoreCompileInputs.cache
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.MvcApplicationPartsAssemblyInfo.cache
+/Users/erdemsincer/Project/MicroService/Payment.API/obj/Debug/net8.0/Payment.API.sourcelink.json
