@@ -11,11 +11,13 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
 {
     IMongoCollection<Models.Entities.Stock> _stockCollection;
     private readonly ISendEndpointProvider _sendEndpointProvider;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public OrderCreatedEventConsumer(MongoDbService mongoDbService, ISendEndpointProvider sendEndpointProvider)
+    public OrderCreatedEventConsumer(MongoDbService mongoDbService, ISendEndpointProvider sendEndpointProvider, IPublishEndpoint publishEndpoint)
     {
         _stockCollection = mongoDbService.GetCollection<Models.Entities.Stock>();
         _sendEndpointProvider = sendEndpointProvider;
+        _publishEndpoint = publishEndpoint;
     }
 
     public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
@@ -47,7 +49,14 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
         }
         else
         {
-            // stok yetersiz gibi işlemler
+            StockNotReservedEvent stockNotReservedEvent = new()
+            {
+                OrderId = context.Message.OrderId,
+                BuyerId = context.Message.BuyerId,
+                Message = "Stock not sufficient"
+            };
+
+            await _publishEndpoint.Publish(stockNotReservedEvent);
         }
         await Task.CompletedTask;
     }
